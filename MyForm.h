@@ -53,13 +53,14 @@ namespace ashesi {
 	protected:
 
 	private: System::Windows::Forms::Button^ btnLogin;
+	private: System::Windows::Forms::TextBox^ txtEmail;
 
 
 
 
 
 
-	private: System::Windows::Forms::TextBox^ txtFName;
+
 	private: System::Windows::Forms::TextBox^ txtPassword;
 
 
@@ -92,7 +93,7 @@ namespace ashesi {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->passwd = (gcnew System::Windows::Forms::Label());
 			this->btnLogin = (gcnew System::Windows::Forms::Button());
-			this->txtFName = (gcnew System::Windows::Forms::TextBox());
+			this->txtEmail = (gcnew System::Windows::Forms::TextBox());
 			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
 			this->btn1Cancel = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
@@ -102,9 +103,9 @@ namespace ashesi {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(200, 218);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(90, 20);
+			this->label1->Size = System::Drawing::Size(44, 16);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"First Name:";
+			this->label1->Text = L"Email:";
 			// 
 			// passwd
 			// 
@@ -127,14 +128,13 @@ namespace ashesi {
 			this->btnLogin->UseVisualStyleBackColor = true;
 			this->btnLogin->Click += gcnew System::EventHandler(this, &MyForm::btnLogin_Click);
 			// 
-			// txtFName
+			// txtEmail
 			// 
-			this->txtFName->Location = System::Drawing::Point(353, 210);
-			this->txtFName->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
-			this->txtFName->Name = L"txtFName";
-			this->txtFName->Size = System::Drawing::Size(281, 26);
-			this->txtFName->TabIndex = 8;
-			this->txtFName->TextChanged += gcnew System::EventHandler(this, &MyForm::txtFName_TextChanged);
+			this->txtEmail->Location = System::Drawing::Point(314, 168);
+			this->txtEmail->Name = L"txtEmail";
+			this->txtEmail->Size = System::Drawing::Size(250, 22);
+			this->txtEmail->TabIndex = 8;
+			this->txtEmail->TextChanged += gcnew System::EventHandler(this, &MyForm::txtFName_TextChanged);
 			// 
 			// txtPassword
 			// 
@@ -162,7 +162,7 @@ namespace ashesi {
 			this->ClientSize = System::Drawing::Size(788, 656);
 			this->Controls->Add(this->btn1Cancel);
 			this->Controls->Add(this->txtPassword);
-			this->Controls->Add(this->txtFName);
+			this->Controls->Add(this->txtEmail);
 			this->Controls->Add(this->btnLogin);
 			this->Controls->Add(this->passwd);
 			this->Controls->Add(this->label1);
@@ -180,7 +180,7 @@ namespace ashesi {
 			"username=root; password=""; database=ashesi";
 		sqlConn->Open();
 		sqlCmd->Connection = sqlConn;
-		sqlCmd->CommandText = "Select * from employees";
+		sqlCmd->CommandText = "Select * from users";
 		sqlRd = sqlCmd->ExecuteReader();
 		sqlDt->Load(sqlRd);
 		sqlRd->Close();
@@ -197,17 +197,17 @@ private: System::Void dataGridView1_CellContentClick(System::Object^ sender, Sys
 }
 private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
 	// Collect user input (e.g., from textboxes)
-	String^ FName = txtFName->Text;
+	String^ email = txtEmail->Text;
 	String^ password = txtPassword->Text; 
 
 	// Prepare database connection and command
 	MySqlConnection^ sqlConn = gcnew MySqlConnection("datasource=localhost;port=3306;username=root;password='';database=ashesi");
 	MySqlCommand^ sqlCmd = gcnew MySqlCommand();
 	sqlCmd->Connection = sqlConn;
-	sqlCmd->CommandText = "SELECT COUNT(*) FROM employees WHERE FName=@FName";
+	sqlCmd->CommandText = "SELECT COUNT(*) FROM users WHERE Email=@email AND UserPassword=@password";
 
 	// Add parameters to prevent SQL injection
-	sqlCmd->Parameters->AddWithValue("@FName", FName);
+	sqlCmd->Parameters->AddWithValue("@email", email);
 	sqlCmd->Parameters->AddWithValue("@password", password);
 
 	try {
