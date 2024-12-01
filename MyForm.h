@@ -103,7 +103,7 @@ namespace ashesi {
 			this->label1->AutoSize = true;
 			this->label1->Location = System::Drawing::Point(200, 218);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(44, 16);
+			this->label1->Size = System::Drawing::Size(52, 20);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Email:";
 			// 
@@ -119,7 +119,7 @@ namespace ashesi {
 			// 
 			// btnLogin
 			// 
-			this->btnLogin->Location = System::Drawing::Point(353, 388);
+			this->btnLogin->Location = System::Drawing::Point(353, 363);
 			this->btnLogin->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->btnLogin->Name = L"btnLogin";
 			this->btnLogin->Size = System::Drawing::Size(106, 59);
@@ -130,9 +130,9 @@ namespace ashesi {
 			// 
 			// txtEmail
 			// 
-			this->txtEmail->Location = System::Drawing::Point(314, 168);
+			this->txtEmail->Location = System::Drawing::Point(353, 218);
 			this->txtEmail->Name = L"txtEmail";
-			this->txtEmail->Size = System::Drawing::Size(250, 22);
+			this->txtEmail->Size = System::Drawing::Size(281, 26);
 			this->txtEmail->TabIndex = 8;
 			this->txtEmail->TextChanged += gcnew System::EventHandler(this, &MyForm::txtFName_TextChanged);
 			// 
@@ -146,7 +146,7 @@ namespace ashesi {
 			// 
 			// btn1Cancel
 			// 
-			this->btn1Cancel->Location = System::Drawing::Point(529, 424);
+			this->btn1Cancel->Location = System::Drawing::Point(528, 363);
 			this->btn1Cancel->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->btn1Cancel->Name = L"btn1Cancel";
 			this->btn1Cancel->Size = System::Drawing::Size(106, 59);
