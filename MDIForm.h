@@ -11,6 +11,7 @@ namespace ashesi {
 
 	/// <summary>
 	/// Summary for MDIForm
+	/// no summary AS of now
 	/// </summary>
 	public ref class MDIForm : public System::Windows::Forms::Form
 	{
@@ -61,7 +62,7 @@ namespace ashesi {
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
+		/// the contents of this method with the code editor..
 		/// </summary>
 		void InitializeComponent(void)
 		{
