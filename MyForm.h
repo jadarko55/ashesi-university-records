@@ -100,27 +100,28 @@ namespace ashesi {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(178, 174);
+			this->label1->Location = System::Drawing::Point(200, 218);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(75, 16);
+			this->label1->Size = System::Drawing::Size(90, 20);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"First Name:";
 			// 
 			// passwd
 			// 
 			this->passwd->AutoSize = true;
-			this->passwd->Location = System::Drawing::Point(178, 250);
+			this->passwd->Location = System::Drawing::Point(200, 312);
 			this->passwd->Name = L"passwd";
-			this->passwd->Size = System::Drawing::Size(70, 16);
+			this->passwd->Size = System::Drawing::Size(82, 20);
 			this->passwd->TabIndex = 1;
 			this->passwd->Text = L"Password:";
 			this->passwd->Click += gcnew System::EventHandler(this, &MyForm::label2_Click);
 			// 
 			// btnLogin
 			// 
-			this->btnLogin->Location = System::Drawing::Point(314, 339);
+			this->btnLogin->Location = System::Drawing::Point(353, 388);
+			this->btnLogin->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->btnLogin->Name = L"btnLogin";
-			this->btnLogin->Size = System::Drawing::Size(94, 47);
+			this->btnLogin->Size = System::Drawing::Size(106, 59);
 			this->btnLogin->TabIndex = 7;
 			this->btnLogin->Text = L"Login";
 			this->btnLogin->UseVisualStyleBackColor = true;
@@ -128,24 +129,27 @@ namespace ashesi {
 			// 
 			// txtFName
 			// 
-			this->txtFName->Location = System::Drawing::Point(314, 168);
+			this->txtFName->Location = System::Drawing::Point(353, 210);
+			this->txtFName->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->txtFName->Name = L"txtFName";
-			this->txtFName->Size = System::Drawing::Size(250, 22);
+			this->txtFName->Size = System::Drawing::Size(281, 26);
 			this->txtFName->TabIndex = 8;
 			this->txtFName->TextChanged += gcnew System::EventHandler(this, &MyForm::txtFName_TextChanged);
 			// 
 			// txtPassword
 			// 
-			this->txtPassword->Location = System::Drawing::Point(314, 244);
+			this->txtPassword->Location = System::Drawing::Point(353, 305);
+			this->txtPassword->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->txtPassword->Name = L"txtPassword";
-			this->txtPassword->Size = System::Drawing::Size(250, 22);
+			this->txtPassword->Size = System::Drawing::Size(281, 26);
 			this->txtPassword->TabIndex = 9;
 			// 
 			// btn1Cancel
 			// 
-			this->btn1Cancel->Location = System::Drawing::Point(470, 339);
+			this->btn1Cancel->Location = System::Drawing::Point(529, 424);
+			this->btn1Cancel->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->btn1Cancel->Name = L"btn1Cancel";
-			this->btn1Cancel->Size = System::Drawing::Size(94, 47);
+			this->btn1Cancel->Size = System::Drawing::Size(106, 59);
 			this->btn1Cancel->TabIndex = 10;
 			this->btn1Cancel->Text = L"Cancel";
 			this->btn1Cancel->UseVisualStyleBackColor = true;
@@ -153,15 +157,16 @@ namespace ashesi {
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(700, 525);
+			this->ClientSize = System::Drawing::Size(788, 656);
 			this->Controls->Add(this->btn1Cancel);
 			this->Controls->Add(this->txtPassword);
 			this->Controls->Add(this->txtFName);
 			this->Controls->Add(this->btnLogin);
 			this->Controls->Add(this->passwd);
 			this->Controls->Add(this->label1);
+			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
