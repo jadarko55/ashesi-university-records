@@ -123,10 +123,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AdminDashboard.cpp" />
+    <ClCompile Include="Faculty Dasboard.cpp" />
     <ClCompile Include="MDIForm.cpp" />
     <ClCompile Include="MyForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdminDashboard.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Faculty Dasboard.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MDIForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -135,6 +143,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AdminDashboard.resx">
+      <DependentUpon>AdminDashboard.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Faculty Dasboard.resx">
+      <DependentUpon>Faculty Dasboard.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MDIForm.resx">
       <DependentUpon>MDIForm.h</DependentUpon>
     </EmbeddedResource>
