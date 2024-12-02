@@ -24,6 +24,9 @@ namespace ashesi {
 			//
 		}
 
+	public:
+		property int RoleID; // Property to store the RoleID
+
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -203,6 +206,28 @@ namespace ashesi {
 		}
 #pragma endregion
 	private: System::Void MDIForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		// Use the RoleID to set up the form
+		switch (RoleID) {
+		case 1: // Admin
+			this->tsbtnAdmin->Visible = true;
+			this->tsbtnFaculty->Visible = false;
+			this->tsbtnStudent->Visible = false;
+			break;
+		case 2: // Faculty
+			this->tsbtnFaculty->Visible = true;
+			this->tsbtnAdmin->Visible = false;
+			this->tsbtnStudent->Visible = false;
+			break;
+		case 3: // Student
+			this->tsbtnStudent->Visible = true;
+			this->tsbtnAdmin->Visible = false;
+			this->tsbtnFaculty->Visible = false;
+			break;
+		default:
+			MessageBox::Show("Unauthorized access.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			this->Close();
+			break;
+		}
 	}
 	};
 }

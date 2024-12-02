@@ -22,9 +22,8 @@ namespace ashesi {
 		MySqlDataAdapter^ sqlDtA = gcnew MySqlDataAdapter();
 	private: System::Windows::Forms::Button^ btn1Cancel;
 
-
-
-
+	public:
+		static System::String^ LoggedInEmail;
 
 	public:
 		MySqlDataReader^ sqlRd;
@@ -57,25 +56,7 @@ namespace ashesi {
 
 
 
-
-
-
-
 	private: System::Windows::Forms::TextBox^ txtPassword;
-
-
-
-
-
-
-
-
-
-
-
-		    
-
-
 
 	private:
 		/// <summary>
@@ -192,46 +173,56 @@ private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }
 private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
-	// Collect user input (e.g., from textboxes)
-	String^ email = txtEmail->Text;
-	String^ password = txtPassword->Text; 
+	// Get user input
+	System::String^ email = txtEmail->Text;
+	System::String^ password = txtPassword->Text;
 
 	// Prepare database connection and command
 	MySqlConnection^ sqlConn = gcnew MySqlConnection("datasource=localhost;port=3306;username=root;password='';database=ashesi");
 	MySqlCommand^ sqlCmd = gcnew MySqlCommand();
 	sqlCmd->Connection = sqlConn;
-	sqlCmd->CommandText = "SELECT COUNT(*) FROM users WHERE Email=@email AND UserPassword=@password";
+	sqlCmd->CommandText = "SELECT * FROM users WHERE Email=@Email AND UserPassword=@Password";
 
 	// Add parameters to prevent SQL injection
-	sqlCmd->Parameters->AddWithValue("@email", email);
-	sqlCmd->Parameters->AddWithValue("@password", password);
+	sqlCmd->Parameters->AddWithValue("@Email", email);
+	sqlCmd->Parameters->AddWithValue("@Password", password);
 
 	try {
-		// Open the connection
 		sqlConn->Open();
 
-		// Execute the query to check if the user exists
-		int userCount = Convert::ToInt32(sqlCmd->ExecuteScalar());
+		// Execute the query
+		MySqlDataReader^ sqlRd = sqlCmd->ExecuteReader();
 
-		if (userCount > 0) {
-			// User exists, show the MDI form
-			MDIForm^ MDIParent = gcnew MDIForm();
-			MDIParent->Show();
-			this->Hide();  // Hide the current form (login form)
+		if (sqlRd->Read()) {
+			// Retrieve the RoleID from the query result
+			int roleID = Convert::ToInt32(sqlRd["RoleID"]);
+
+			// Retrieve other user details if necessary
+			System::String^ userName = sqlRd["Name"]->ToString();
+			System::String^ userEmail = sqlRd["Email"]->ToString();
+
+			// Store the logged-in user's email globally
+			LoggedInEmail = userEmail;
+
+			// Open the MDIForm and pass the role
+			MDIForm^ mdiForm = gcnew MDIForm();
+			mdiForm->RoleID = roleID; // Pass the role to the MDI form
+			mdiForm->Show();
+			this->Hide();
 		}
 		else {
-			// User doesn't exist, show an error message
-			MessageBox::Show("Invalid username or password.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			// No matching user found
+			MessageBox::Show("Invalid email or password.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		}
 
-		// Close the connection
 		sqlConn->Close();
 	}
 	catch (Exception^ ex) {
-		// Handle connection errors
+		// Handle any errors
 		MessageBox::Show("Error: " + ex->Message, "Database Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
 }
+
 private: System::Void txtFName_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void btn1Cancel_Click(System::Object^ sender, System::EventArgs^ e) {
