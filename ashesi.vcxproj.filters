@@ -21,12 +21,24 @@
     <ClCompile Include="MDIForm.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="AdminDashboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Faculty Dasboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MDIForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AdminDashboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Faculty Dasboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

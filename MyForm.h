@@ -21,6 +21,7 @@ namespace ashesi {
 		DataTable^ sqlDt =  gcnew DataTable();
 		MySqlDataAdapter^ sqlDtA = gcnew MySqlDataAdapter();
 	private: System::Windows::Forms::Button^ btn1Cancel;
+	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
 
 
 
@@ -62,6 +63,7 @@ namespace ashesi {
 
 
 	private: System::Windows::Forms::TextBox^ txtPassword;
+	private: System::ComponentModel::IContainer^ components;
 
 
 
@@ -81,7 +83,7 @@ namespace ashesi {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -90,18 +92,20 @@ namespace ashesi {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->passwd = (gcnew System::Windows::Forms::Label());
 			this->btnLogin = (gcnew System::Windows::Forms::Button());
 			this->txtEmail = (gcnew System::Windows::Forms::TextBox());
 			this->txtPassword = (gcnew System::Windows::Forms::TextBox());
 			this->btn1Cancel = (gcnew System::Windows::Forms::Button());
+			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(200, 218);
+			this->label1->Location = System::Drawing::Point(129, 211);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(52, 20);
 			this->label1->TabIndex = 0;
@@ -110,7 +114,7 @@ namespace ashesi {
 			// passwd
 			// 
 			this->passwd->AutoSize = true;
-			this->passwd->Location = System::Drawing::Point(200, 312);
+			this->passwd->Location = System::Drawing::Point(129, 307);
 			this->passwd->Name = L"passwd";
 			this->passwd->Size = System::Drawing::Size(82, 20);
 			this->passwd->TabIndex = 1;
@@ -130,7 +134,7 @@ namespace ashesi {
 			// 
 			// txtEmail
 			// 
-			this->txtEmail->Location = System::Drawing::Point(353, 218);
+			this->txtEmail->Location = System::Drawing::Point(353, 205);
 			this->txtEmail->Name = L"txtEmail";
 			this->txtEmail->Size = System::Drawing::Size(281, 26);
 			this->txtEmail->TabIndex = 8;
@@ -138,7 +142,7 @@ namespace ashesi {
 			// 
 			// txtPassword
 			// 
-			this->txtPassword->Location = System::Drawing::Point(353, 305);
+			this->txtPassword->Location = System::Drawing::Point(353, 301);
 			this->txtPassword->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->txtPassword->Name = L"txtPassword";
 			this->txtPassword->Size = System::Drawing::Size(281, 26);
@@ -154,6 +158,12 @@ namespace ashesi {
 			this->btn1Cancel->Text = L"Cancel";
 			this->btn1Cancel->UseVisualStyleBackColor = true;
 			this->btn1Cancel->Click += gcnew System::EventHandler(this, &MyForm::btn1Cancel_Click);
+			// 
+			// contextMenuStrip1
+			// 
+			this->contextMenuStrip1->ImageScalingSize = System::Drawing::Size(24, 24);
+			this->contextMenuStrip1->Name = L"contextMenuStrip1";
+			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
 			// 
 			// MyForm
 			// 
