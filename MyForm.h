@@ -31,6 +31,7 @@ namespace ashesi {
 		MyForm(void)
 		{
 			InitializeComponent();
+
 			//
 			//TODO: Add the constructor code here
 			//
@@ -205,7 +206,7 @@ private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ 
 			LoggedInEmail = userEmail;
 
 			// Open the MDIForm and pass the role
-			MDIForm^ mdiForm = gcnew MDIForm();
+			MDIForm^ mdiForm = gcnew MDIForm(LoggedInEmail);
 			mdiForm->RoleID = roleID; // Pass the role to the MDI form
 			mdiForm->Show();
 			this->Hide();

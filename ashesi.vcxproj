@@ -125,12 +125,20 @@
   <ItemGroup>
     <ClCompile Include="MDIForm.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="Profile.cpp" />
+    <ClCompile Include="StudentDashboard.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MDIForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Profile.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="StudentDashboard.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -140,6 +148,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profile.resx">
+      <DependentUpon>Profile.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentDashboard.resx">
+      <DependentUpon>StudentDashboard.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

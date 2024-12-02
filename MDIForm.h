@@ -1,4 +1,5 @@
 #pragma once
+#include "StudentDashboard.h"
 
 namespace ashesi {
 
@@ -16,9 +17,13 @@ namespace ashesi {
 	public ref class MDIForm : public System::Windows::Forms::Form
 	{
 	public:
-		MDIForm(void)
+		String^ userEmail;
+
+	public:
+		MDIForm(String^ email)
 		{
 			InitializeComponent();
+			String^ userEmail = email;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -26,6 +31,7 @@ namespace ashesi {
 
 	public:
 		property int RoleID; // Property to store the RoleID
+		
 
 	protected:
 		/// <summary>
@@ -73,8 +79,8 @@ namespace ashesi {
 			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
 			this->tsbtnFile = (gcnew System::Windows::Forms::ToolStripButton());
 			this->tsbtnStudent = (gcnew System::Windows::Forms::ToolStripButton());
-			this->tsbtnAdmin = (gcnew System::Windows::Forms::ToolStripButton());
 			this->tsbtnFaculty = (gcnew System::Windows::Forms::ToolStripButton());
+			this->tsbtnAdmin = (gcnew System::Windows::Forms::ToolStripButton());
 			this->statusStrip1 = (gcnew System::Windows::Forms::StatusStrip());
 			this->tssUser = (gcnew System::Windows::Forms::ToolStripStatusLabel());
 			this->pgbarUser = (gcnew System::Windows::Forms::ToolStripProgressBar());
@@ -95,7 +101,7 @@ namespace ashesi {
 			});
 			this->toolStrip1->Location = System::Drawing::Point(0, 0);
 			this->toolStrip1->Name = L"toolStrip1";
-			this->toolStrip1->Size = System::Drawing::Size(571, 31);
+			this->toolStrip1->Size = System::Drawing::Size(571, 27);
 			this->toolStrip1->TabIndex = 0;
 			this->toolStrip1->Text = L"toolStrip1";
 			// 
@@ -105,7 +111,7 @@ namespace ashesi {
 			this->tsbtnFile->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbtnFile.Image")));
 			this->tsbtnFile->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->tsbtnFile->Name = L"tsbtnFile";
-			this->tsbtnFile->Size = System::Drawing::Size(36, 28);
+			this->tsbtnFile->Size = System::Drawing::Size(36, 24);
 			this->tsbtnFile->Text = L"File";
 			// 
 			// tsbtnStudent
@@ -114,17 +120,9 @@ namespace ashesi {
 			this->tsbtnStudent->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbtnStudent.Image")));
 			this->tsbtnStudent->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->tsbtnStudent->Name = L"tsbtnStudent";
-			this->tsbtnStudent->Size = System::Drawing::Size(64, 28);
+			this->tsbtnStudent->Size = System::Drawing::Size(64, 24);
 			this->tsbtnStudent->Text = L"Student";
-			// 
-			// tsbtnAdmin
-			// 
-			this->tsbtnAdmin->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
-			this->tsbtnAdmin->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbtnAdmin.Image")));
-			this->tsbtnAdmin->ImageTransparentColor = System::Drawing::Color::Magenta;
-			this->tsbtnAdmin->Name = L"tsbtnAdmin";
-			this->tsbtnAdmin->Size = System::Drawing::Size(57, 28);
-			this->tsbtnAdmin->Text = L"Admin";
+			this->tsbtnStudent->Click += gcnew System::EventHandler(this, &MDIForm::tsbtnStudent_Click);
 			// 
 			// tsbtnFaculty
 			// 
@@ -132,8 +130,19 @@ namespace ashesi {
 			this->tsbtnFaculty->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbtnFaculty.Image")));
 			this->tsbtnFaculty->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->tsbtnFaculty->Name = L"tsbtnFaculty";
-			this->tsbtnFaculty->Size = System::Drawing::Size(58, 28);
+			this->tsbtnFaculty->Size = System::Drawing::Size(58, 24);
 			this->tsbtnFaculty->Text = L"Faculty";
+			this->tsbtnFaculty->Click += gcnew System::EventHandler(this, &MDIForm::tsbtnFaculty_Click);
+			// 
+			// tsbtnAdmin
+			// 
+			this->tsbtnAdmin->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
+			this->tsbtnAdmin->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbtnAdmin.Image")));
+			this->tsbtnAdmin->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->tsbtnAdmin->Name = L"tsbtnAdmin";
+			this->tsbtnAdmin->Size = System::Drawing::Size(57, 24);
+			this->tsbtnAdmin->Text = L"Admin";
+			this->tsbtnAdmin->Click += gcnew System::EventHandler(this, &MDIForm::tsbtnAdmin_Click);
 			// 
 			// statusStrip1
 			// 
@@ -199,6 +208,7 @@ namespace ashesi {
 			this->toolStrip1->ResumeLayout(false);
 			this->toolStrip1->PerformLayout();
 			this->statusStrip1->ResumeLayout(false);
+			this->IsMdiContainer = true;
 			this->statusStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -229,5 +239,15 @@ namespace ashesi {
 			break;
 		}
 	}
-	};
+private: System::Void tsbtnStudent_Click(System::Object^ sender, System::EventArgs^ e) {
+	// Create and display the Student dashboard
+	StudentDashboard^ studentDashboard = gcnew StudentDashboard(userEmail);
+	studentDashboard->MdiParent = this;  // Set MDI parent to this form
+	studentDashboard->Show();  // Show the form
+}
+private: System::Void tsbtnFaculty_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void tsbtnAdmin_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+};
 }
