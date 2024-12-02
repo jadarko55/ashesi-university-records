@@ -134,6 +134,15 @@ namespace ashesi {
 			this->tsbtnFaculty->Text = L"Faculty";
 			this->tsbtnFaculty->Click += gcnew System::EventHandler(this, &MDIForm::tsbtnFaculty_Click);
 			// 
+			// tsbtnFaculty
+			// 
+			this->tsbtnFaculty->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
+			this->tsbtnFaculty->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbtnFaculty.Image")));
+			this->tsbtnFaculty->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->tsbtnFaculty->Name = L"tsbtnFaculty";
+			this->tsbtnFaculty->Size = System::Drawing::Size(70, 33);
+			this->tsbtnFaculty->Text = L"Faculty";
+			// 
 			// tsbtnAdmin
 			// 
 			this->tsbtnAdmin->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
@@ -151,9 +160,10 @@ namespace ashesi {
 				this->tssUser, this->pgbarUser,
 					this->tssRole, this->pgbarRole, this->tssLastlgn, this->pgbarlogin
 			});
-			this->statusStrip1->Location = System::Drawing::Point(0, 358);
+			this->statusStrip1->Location = System::Drawing::Point(0, 448);
 			this->statusStrip1->Name = L"statusStrip1";
-			this->statusStrip1->Size = System::Drawing::Size(571, 26);
+			this->statusStrip1->Padding = System::Windows::Forms::Padding(1, 0, 16, 0);
+			this->statusStrip1->Size = System::Drawing::Size(642, 32);
 			this->statusStrip1->TabIndex = 1;
 			this->statusStrip1->Text = L"statusStrip1";
 			// 
@@ -162,46 +172,47 @@ namespace ashesi {
 			this->tssUser->BackColor = System::Drawing::Color::White;
 			this->tssUser->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
 			this->tssUser->Name = L"tssUser";
-			this->tssUser->Size = System::Drawing::Size(41, 20);
+			this->tssUser->Size = System::Drawing::Size(51, 25);
 			this->tssUser->Text = L"User:";
 			// 
 			// pgbarUser
 			// 
 			this->pgbarUser->Name = L"pgbarUser";
-			this->pgbarUser->Size = System::Drawing::Size(100, 18);
+			this->pgbarUser->Size = System::Drawing::Size(112, 24);
 			// 
 			// tssRole
 			// 
 			this->tssRole->BackColor = System::Drawing::Color::White;
 			this->tssRole->Name = L"tssRole";
-			this->tssRole->Size = System::Drawing::Size(39, 20);
+			this->tssRole->Size = System::Drawing::Size(46, 25);
 			this->tssRole->Text = L"Role";
 			// 
 			// pgbarRole
 			// 
 			this->pgbarRole->Name = L"pgbarRole";
-			this->pgbarRole->Size = System::Drawing::Size(100, 18);
+			this->pgbarRole->Size = System::Drawing::Size(112, 24);
 			// 
 			// tssLastlgn
 			// 
 			this->tssLastlgn->BackColor = System::Drawing::Color::White;
 			this->tssLastlgn->Name = L"tssLastlgn";
-			this->tssLastlgn->Size = System::Drawing::Size(76, 20);
+			this->tssLastlgn->Size = System::Drawing::Size(92, 25);
 			this->tssLastlgn->Text = L"Last Login";
 			// 
 			// pgbarlogin
 			// 
 			this->pgbarlogin->Name = L"pgbarlogin";
-			this->pgbarlogin->Size = System::Drawing::Size(100, 18);
+			this->pgbarlogin->Size = System::Drawing::Size(112, 24);
 			// 
 			// MDIForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::LightSteelBlue;
-			this->ClientSize = System::Drawing::Size(571, 384);
+			this->ClientSize = System::Drawing::Size(642, 480);
 			this->Controls->Add(this->statusStrip1);
 			this->Controls->Add(this->toolStrip1);
+			this->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->Name = L"MDIForm";
 			this->Text = L"MDIForm";
 			this->Load += gcnew System::EventHandler(this, &MDIForm::MDIForm_Load);
