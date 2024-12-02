@@ -147,7 +147,7 @@ namespace ashesi {
 			// 
 			// txtEmail
 			// 
-			this->txtEmail->ForeColor = System::Drawing::SystemColors::Control;
+			this->txtEmail->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->txtEmail->Location = System::Drawing::Point(407, 98);
 			this->txtEmail->Name = L"txtEmail";
 			this->txtEmail->Size = System::Drawing::Size(211, 26);
@@ -156,7 +156,7 @@ namespace ashesi {
 			// 
 			// txtPassword
 			// 
-			this->txtPassword->ForeColor = System::Drawing::SystemColors::Control;
+			this->txtPassword->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
 			this->txtPassword->Location = System::Drawing::Point(407, 180);
 			this->txtPassword->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->txtPassword->Name = L"txtPassword";
@@ -189,6 +189,7 @@ namespace ashesi {
 			this->pictureBox1->Location = System::Drawing::Point(33, 67);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(244, 259);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 11;
 			this->pictureBox1->TabStop = false;
 			// 
@@ -197,7 +198,7 @@ namespace ashesi {
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Maroon;
-			this->ClientSize = System::Drawing::Size(678, 405);
+			this->ClientSize = System::Drawing::Size(678, 375);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->btn1Cancel);
 			this->Controls->Add(this->txtPassword);
