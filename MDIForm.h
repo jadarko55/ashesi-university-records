@@ -1,5 +1,6 @@
 #pragma once
 #include "StudentDashboard.h"
+#include "FacultyDasboard.h"
 
 namespace ashesi {
 
@@ -257,6 +258,7 @@ private: System::Void tsbtnStudent_Click(System::Object^ sender, System::EventAr
 	studentDashboard->Show();  // Show the form
 }
 private: System::Void tsbtnFaculty_Click(System::Object^ sender, System::EventArgs^ e) {
+
 }
 private: System::Void tsbtnAdmin_Click(System::Object^ sender, System::EventArgs^ e) {
 }

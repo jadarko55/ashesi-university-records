@@ -125,8 +125,12 @@
   <ItemGroup>
     <ClCompile Include="AdminDashboard.cpp" />
     <ClCompile Include="Faculty Dasboard.cpp" />
+    <ClCompile Include="FacultyProfile.cpp" />
+    <ClCompile Include="Grades1.cpp" />
     <ClCompile Include="MDIForm.cpp" />
+    <ClCompile Include="Modules.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="People.cpp" />
     <ClCompile Include="Profile.cpp" />
     <ClCompile Include="StudentDashboard.cpp" />
   </ItemGroup>
@@ -134,13 +138,25 @@
     <ClInclude Include="AdminDashboard.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Faculty Dasboard.h">
+    <ClInclude Include="FacultyDasboard.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="FacultyProfile.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Grades1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MDIForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Modules.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="People.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Profile.h">
@@ -154,14 +170,26 @@
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Faculty Dasboard.resx">
-      <DependentUpon>Faculty Dasboard.h</DependentUpon>
+    <EmbeddedResource Include="FacultyDasboard.resx">
+      <DependentUpon>FacultyDasboard.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacultyProfile.resx">
+      <DependentUpon>FacultyProfile.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grades1.resx">
+      <DependentUpon>Grades1.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDIForm.resx">
       <DependentUpon>MDIForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modules.resx">
+      <DependentUpon>Modules.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People.resx">
+      <DependentUpon>People.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profile.resx">
       <DependentUpon>Profile.h</DependentUpon>
