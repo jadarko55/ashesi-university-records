@@ -123,15 +123,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddStudent.cpp" />
     <ClCompile Include="AdminDashboard.cpp" />
+    <ClCompile Include="DeleteStudent.cpp" />
     <ClCompile Include="Faculty Dasboard.cpp" />
     <ClCompile Include="MDIForm.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Profile.cpp" />
     <ClCompile Include="StudentDashboard.cpp" />
+    <ClCompile Include="StudentManagement.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddStudent.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AdminDashboard.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="DeleteStudent.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Faculty Dasboard.h">
@@ -149,10 +158,19 @@
     <ClInclude Include="StudentDashboard.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="StudentManagement.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddStudent.resx">
+      <DependentUpon>AddStudent.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteStudent.resx">
+      <DependentUpon>DeleteStudent.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Faculty Dasboard.resx">
       <DependentUpon>Faculty Dasboard.h</DependentUpon>
@@ -168,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StudentDashboard.resx">
       <DependentUpon>StudentDashboard.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentManagement.resx">
+      <DependentUpon>StudentManagement.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
