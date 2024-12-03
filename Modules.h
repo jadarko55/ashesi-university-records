@@ -79,6 +79,10 @@ namespace ashesi {
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
@@ -87,14 +91,10 @@ namespace ashesi {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->button7 = (gcnew System::Windows::Forms::Button());
+			this->button6 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->button6 = (gcnew System::Windows::Forms::Button());
-			this->button7 = (gcnew System::Windows::Forms::Button());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button8 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->panel1->SuspendLayout();
@@ -134,6 +134,34 @@ namespace ashesi {
 			this->dataGridView1->RowTemplate->Height = 28;
 			this->dataGridView1->Size = System::Drawing::Size(664, 57);
 			this->dataGridView1->TabIndex = 10;
+			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"Module Code";
+			this->Column1->MinimumWidth = 8;
+			this->Column1->Name = L"Column1";
+			this->Column1->Width = 150;
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Module Name";
+			this->Column2->MinimumWidth = 8;
+			this->Column2->Name = L"Column2";
+			this->Column2->Width = 150;
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"Department";
+			this->Column3->MinimumWidth = 8;
+			this->Column3->Name = L"Column3";
+			this->Column3->Width = 150;
+			// 
+			// Column4
+			// 
+			this->Column4->HeaderText = L"Instructor";
+			this->Column4->MinimumWidth = 8;
+			this->Column4->Name = L"Column4";
+			this->Column4->Width = 150;
 			// 
 			// textBox1
 			// 
@@ -221,6 +249,29 @@ namespace ashesi {
 			this->panel1->TabIndex = 8;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Modules::panel1_Paint);
 			// 
+			// button7
+			// 
+			this->button7->BackColor = System::Drawing::SystemColors::Control;
+			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->button7->Location = System::Drawing::Point(171, 119);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(75, 32);
+			this->button7->TabIndex = 9;
+			this->button7->Text = L"Delete";
+			this->button7->UseVisualStyleBackColor = false;
+			this->button7->Click += gcnew System::EventHandler(this, &Modules::button7_Click);
+			// 
+			// button6
+			// 
+			this->button6->BackColor = System::Drawing::SystemColors::Control;
+			this->button6->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->button6->Location = System::Drawing::Point(90, 119);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(75, 32);
+			this->button6->TabIndex = 8;
+			this->button6->Text = L"Update";
+			this->button6->UseVisualStyleBackColor = false;
+			// 
 			// button2
 			// 
 			this->button2->BackColor = System::Drawing::SystemColors::Control;
@@ -240,57 +291,6 @@ namespace ashesi {
 			this->pictureBox1->Size = System::Drawing::Size(164, 160);
 			this->pictureBox1->TabIndex = 7;
 			this->pictureBox1->TabStop = false;
-			// 
-			// button6
-			// 
-			this->button6->BackColor = System::Drawing::SystemColors::Control;
-			this->button6->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->button6->Location = System::Drawing::Point(90, 119);
-			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(75, 32);
-			this->button6->TabIndex = 8;
-			this->button6->Text = L"Update";
-			this->button6->UseVisualStyleBackColor = false;
-			// 
-			// button7
-			// 
-			this->button7->BackColor = System::Drawing::SystemColors::Control;
-			this->button7->FlatStyle = System::Windows::Forms::FlatStyle::System;
-			this->button7->Location = System::Drawing::Point(171, 119);
-			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(75, 32);
-			this->button7->TabIndex = 9;
-			this->button7->Text = L"Delete";
-			this->button7->UseVisualStyleBackColor = false;
-			this->button7->Click += gcnew System::EventHandler(this, &Modules::button7_Click);
-			// 
-			// Column1
-			// 
-			this->Column1->HeaderText = L"Module Code";
-			this->Column1->MinimumWidth = 8;
-			this->Column1->Name = L"Column1";
-			this->Column1->Width = 150;
-			// 
-			// Column2
-			// 
-			this->Column2->HeaderText = L"Module Name";
-			this->Column2->MinimumWidth = 8;
-			this->Column2->Name = L"Column2";
-			this->Column2->Width = 150;
-			// 
-			// Column3
-			// 
-			this->Column3->HeaderText = L"Department";
-			this->Column3->MinimumWidth = 8;
-			this->Column3->Name = L"Column3";
-			this->Column3->Width = 150;
-			// 
-			// Column4
-			// 
-			this->Column4->HeaderText = L"Instructor";
-			this->Column4->MinimumWidth = 8;
-			this->Column4->Name = L"Column4";
-			this->Column4->Width = 150;
 			// 
 			// button8
 			// 

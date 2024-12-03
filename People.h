@@ -97,6 +97,12 @@ namespace ashesi {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(People::typeid));
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Department = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->button8 = (gcnew System::Windows::Forms::Button());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
@@ -112,12 +118,6 @@ namespace ashesi {
 			this->button13 = (gcnew System::Windows::Forms::Button());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Department = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel2->SuspendLayout();
@@ -137,6 +137,48 @@ namespace ashesi {
 			this->dataGridView1->Size = System::Drawing::Size(962, 55);
 			this->dataGridView1->TabIndex = 10;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &People::dataGridView1_CellContentClick);
+			// 
+			// Column1
+			// 
+			this->Column1->HeaderText = L"Name";
+			this->Column1->MinimumWidth = 8;
+			this->Column1->Name = L"Column1";
+			this->Column1->Width = 150;
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Role";
+			this->Column2->MinimumWidth = 8;
+			this->Column2->Name = L"Column2";
+			this->Column2->Width = 150;
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"ID";
+			this->Column3->MinimumWidth = 8;
+			this->Column3->Name = L"Column3";
+			this->Column3->Width = 150;
+			// 
+			// Column4
+			// 
+			this->Column4->HeaderText = L"Email";
+			this->Column4->MinimumWidth = 8;
+			this->Column4->Name = L"Column4";
+			this->Column4->Width = 150;
+			// 
+			// Column5
+			// 
+			this->Column5->HeaderText = L"Phone";
+			this->Column5->MinimumWidth = 8;
+			this->Column5->Name = L"Column5";
+			this->Column5->Width = 150;
+			// 
+			// Department
+			// 
+			this->Department->HeaderText = L"Department";
+			this->Department->MinimumWidth = 8;
+			this->Department->Name = L"Department";
+			this->Department->Width = 150;
 			// 
 			// pictureBox1
 			// 
@@ -296,54 +338,12 @@ namespace ashesi {
 			this->panel2->TabIndex = 16;
 			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &People::panel2_Paint);
 			// 
-			// Column1
-			// 
-			this->Column1->HeaderText = L"Name";
-			this->Column1->MinimumWidth = 8;
-			this->Column1->Name = L"Column1";
-			this->Column1->Width = 150;
-			// 
-			// Column2
-			// 
-			this->Column2->HeaderText = L"Role";
-			this->Column2->MinimumWidth = 8;
-			this->Column2->Name = L"Column2";
-			this->Column2->Width = 150;
-			// 
-			// Column3
-			// 
-			this->Column3->HeaderText = L"ID";
-			this->Column3->MinimumWidth = 8;
-			this->Column3->Name = L"Column3";
-			this->Column3->Width = 150;
-			// 
-			// Column4
-			// 
-			this->Column4->HeaderText = L"Email";
-			this->Column4->MinimumWidth = 8;
-			this->Column4->Name = L"Column4";
-			this->Column4->Width = 150;
-			// 
-			// Column5
-			// 
-			this->Column5->HeaderText = L"Phone";
-			this->Column5->MinimumWidth = 8;
-			this->Column5->Name = L"Column5";
-			this->Column5->Width = 150;
-			// 
-			// Department
-			// 
-			this->Department->HeaderText = L"Department";
-			this->Department->MinimumWidth = 8;
-			this->Department->Name = L"Department";
-			this->Department->Width = 150;
-			// 
 			// People
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::Maroon;
-			this->ClientSize = System::Drawing::Size(1043, 566);
+			this->ClientSize = System::Drawing::Size(1024, 566);
 			this->Controls->Add(this->button8);
 			this->Controls->Add(this->button11);
 			this->Controls->Add(this->button12);

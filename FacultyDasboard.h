@@ -130,7 +130,7 @@ namespace ashesi {
 			// 
 			this->button15->BackColor = System::Drawing::Color::LightCoral;
 			this->button15->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button15->Location = System::Drawing::Point(534, 419);
+			this->button15->Location = System::Drawing::Point(526, 471);
 			this->button15->Name = L"button15";
 			this->button15->Size = System::Drawing::Size(204, 37);
 			this->button15->TabIndex = 15;
@@ -145,7 +145,7 @@ namespace ashesi {
 			this->panel1->Controls->Add(this->button6);
 			this->panel1->Controls->Add(this->button14);
 			this->panel1->Controls->Add(this->button11);
-			this->panel1->Location = System::Drawing::Point(1, 1);
+			this->panel1->Location = System::Drawing::Point(1, 12);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(275, 518);
 			this->panel1->TabIndex = 16;
@@ -155,7 +155,7 @@ namespace ashesi {
 			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(12, 3);
+			this->pictureBox1->Location = System::Drawing::Point(11, 3);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(258, 259);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -167,7 +167,7 @@ namespace ashesi {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(766, 585);
+			this->ClientSize = System::Drawing::Size(766, 541);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->button15);
 			this->Name = L"FacultyDasboard";
