@@ -45,7 +45,7 @@ namespace ashesi {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -68,7 +68,6 @@ namespace ashesi {
 			this->label1->Size = System::Drawing::Size(99, 16);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Enter StudentID";
-			this->label1->Click += gcnew System::EventHandler(this, &DeleteStudent::label1_Click);
 			// 
 			// txtsID
 			// 
@@ -113,8 +112,8 @@ namespace ashesi {
 
 		}
 #pragma endregion
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-		
+	private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
 	}
 	private: System::Void btnDelete_Click(System::Object^ sender, System::EventArgs^ e) {
 		String^ studentID = txtsID->Text;
@@ -150,9 +149,7 @@ namespace ashesi {
 		catch (Exception^ ex) {
 			MessageBox::Show("Error: " + ex->Message);
 		}
+	
 	}
-private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->Close();
-}
-};
+	};
 }

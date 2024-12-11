@@ -125,11 +125,8 @@
   <ItemGroup>
     <ClCompile Include="AddStudent.cpp" />
     <ClCompile Include="AdminDashboard.cpp" />
-<<<<<<< HEAD
     <ClCompile Include="Course.cpp" />
-=======
     <ClCompile Include="DeleteStudent.cpp" />
->>>>>>> 9433e0601ade7313310d475a3f27eea3c045edea
     <ClCompile Include="Faculty Dasboard.cpp" />
     <ClCompile Include="FacultyProfile.cpp" />
     <ClCompile Include="Grades1.cpp" />
@@ -148,7 +145,6 @@
     <ClInclude Include="AdminDashboard.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-<<<<<<< HEAD
     <ClInclude Include="Course.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -159,12 +155,8 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Grades1.h">
-=======
-    <ClInclude Include="DeleteStudent.h">
-      <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Faculty Dasboard.h">
->>>>>>> 9433e0601ade7313310d475a3f27eea3c045edea
+    <ClInclude Include="DeleteStudent.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MDIForm.h">
@@ -196,7 +188,6 @@
     <EmbeddedResource Include="AdminDashboard.resx">
       <DependentUpon>AdminDashboard.h</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
     <EmbeddedResource Include="Course.resx">
       <DependentUpon>Course.h</DependentUpon>
     </EmbeddedResource>
@@ -208,13 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Grades1.resx">
       <DependentUpon>Grades1.h</DependentUpon>
-=======
+    </EmbeddedResource>
     <EmbeddedResource Include="DeleteStudent.resx">
       <DependentUpon>DeleteStudent.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Faculty Dasboard.resx">
-      <DependentUpon>Faculty Dasboard.h</DependentUpon>
->>>>>>> 9433e0601ade7313310d475a3f27eea3c045edea
     </EmbeddedResource>
     <EmbeddedResource Include="MDIForm.resx">
       <DependentUpon>MDIForm.h</DependentUpon>

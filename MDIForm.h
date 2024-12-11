@@ -1,10 +1,8 @@
 #pragma once
 #include "StudentDashboard.h"
-<<<<<<< HEAD
 #include "FacultyDasboard.h"
-=======
+
 #include "AdminDashboard.h"
->>>>>>> 9433e0601ade7313310d475a3f27eea3c045edea
 
 namespace ashesi {
 
@@ -262,7 +260,9 @@ private: System::Void tsbtnStudent_Click(System::Object^ sender, System::EventAr
 	studentDashboard->Show();  // Show the form
 }
 private: System::Void tsbtnFaculty_Click(System::Object^ sender, System::EventArgs^ e) {
-
+	FacultyDasboard^ facultyDasboard = gcnew FacultyDasboard();
+	facultyDasboard->MdiParent = this;
+	facultyDasboard->Show();
 }
 private: System::Void tsbtnAdmin_Click(System::Object^ sender, System::EventArgs^ e) {
 	AdminDashboard^ adminDashboard = gcnew AdminDashboard();

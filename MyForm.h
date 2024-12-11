@@ -18,11 +18,17 @@ namespace ashesi {
 	{
 		MySqlConnection^ sqlConn = gcnew MySqlConnection();
 		MySqlCommand^ sqlCmd = gcnew MySqlCommand();
-		DataTable^ sqlDt =  gcnew DataTable();
+		DataTable^ sqlDt = gcnew DataTable();
 		MySqlDataAdapter^ sqlDtA = gcnew MySqlDataAdapter();
+
 	private: System::Windows::Forms::Button^ btn1Cancel;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
-
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ passwd;
+	private: System::Windows::Forms::Button^ btnLogin;
+	private: System::Windows::Forms::TextBox^ txtEmail;
+	private: System::Windows::Forms::TextBox^ txtPassword;
+	private: System::ComponentModel::IContainer^ components;
 
 	public:
 		static System::String^ LoggedInEmail;
@@ -33,7 +39,6 @@ namespace ashesi {
 		MyForm(void)
 		{
 			InitializeComponent();
-
 			//
 			//TODO: Add the constructor code here
 			//
@@ -50,23 +55,6 @@ namespace ashesi {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ passwd;
-	protected:
-
-	private: System::Windows::Forms::Button^ btnLogin;
-	private: System::Windows::Forms::TextBox^ txtEmail;
-
-
-
-	private: System::Windows::Forms::TextBox^ txtPassword;
-	private: System::ComponentModel::IContainer^ components;
-
-	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -129,12 +117,8 @@ namespace ashesi {
 			// txtEmail
 			// 
 			this->txtEmail->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-<<<<<<< HEAD
-			this->txtEmail->Location = System::Drawing::Point(407, 98);
-=======
 			this->txtEmail->Location = System::Drawing::Point(362, 78);
 			this->txtEmail->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
->>>>>>> 9433e0601ade7313310d475a3f27eea3c045edea
 			this->txtEmail->Name = L"txtEmail";
 			this->txtEmail->Size = System::Drawing::Size(188, 22);
 			this->txtEmail->TabIndex = 8;
@@ -143,12 +127,8 @@ namespace ashesi {
 			// txtPassword
 			// 
 			this->txtPassword->ForeColor = System::Drawing::SystemColors::ActiveCaptionText;
-<<<<<<< HEAD
-			this->txtPassword->Location = System::Drawing::Point(407, 180);
-			this->txtPassword->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
-=======
 			this->txtPassword->Location = System::Drawing::Point(362, 144);
->>>>>>> 9433e0601ade7313310d475a3f27eea3c045edea
+			this->txtPassword->Margin = System::Windows::Forms::Padding(3, 4, 3, 4);
 			this->txtPassword->Name = L"txtPassword";
 			this->txtPassword->Size = System::Drawing::Size(188, 22);
 			this->txtPassword->TabIndex = 9;
@@ -178,11 +158,7 @@ namespace ashesi {
 			this->pictureBox1->Location = System::Drawing::Point(29, 54);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->pictureBox1->Name = L"pictureBox1";
-<<<<<<< HEAD
-			this->pictureBox1->Size = System::Drawing::Size(244, 259);
-=======
 			this->pictureBox1->Size = System::Drawing::Size(217, 208);
->>>>>>> 9433e0601ade7313310d475a3f27eea3c045edea
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 11;
 			this->pictureBox1->TabStop = false;
@@ -210,8 +186,7 @@ namespace ashesi {
 		}
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		sqlConn->ConnectionString = "datasource = localhost; port=3306;"
-			"username=root; password=""; database=ashesi";
+		sqlConn->ConnectionString = "datasource=localhost;port=3306;username=root;password='';database=ashesi";
 		sqlConn->Open();
 		sqlCmd->Connection = sqlConn;
 		sqlCmd->CommandText = "Select * from users";
@@ -219,71 +194,63 @@ namespace ashesi {
 		sqlDt->Load(sqlRd);
 		sqlRd->Close();
 		sqlConn->Close();
-	}	
-	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void label6_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+	private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
+		// Get user input
+		System::String^ email = txtEmail->Text;
+		System::String^ password = txtPassword->Text;
 
-private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-}
-private: System::Void btnLogin_Click(System::Object^ sender, System::EventArgs^ e) {
-	// Get user input
-	System::String^ email = txtEmail->Text;
-	System::String^ password = txtPassword->Text;
+		// Prepare database connection and command
+		MySqlConnection^ sqlConn = gcnew MySqlConnection("datasource=localhost;port=3306;username=root;password='';database=ashesi");
+		MySqlCommand^ sqlCmd = gcnew MySqlCommand();
+		sqlCmd->Connection = sqlConn;
+		sqlCmd->CommandText = "SELECT * FROM users WHERE Email=@Email AND UserPassword=@Password";
 
-	// Prepare database connection and command
-	MySqlConnection^ sqlConn = gcnew MySqlConnection("datasource=localhost;port=3306;username=root;password='';database=ashesi");
-	MySqlCommand^ sqlCmd = gcnew MySqlCommand();
-	sqlCmd->Connection = sqlConn;
-	sqlCmd->CommandText = "SELECT * FROM users WHERE Email=@Email AND UserPassword=@Password";
+		// Add parameters to prevent SQL injection
+		sqlCmd->Parameters->AddWithValue("@Email", email);
+		sqlCmd->Parameters->AddWithValue("@Password", password);
 
-	// Add parameters to prevent SQL injection
-	sqlCmd->Parameters->AddWithValue("@Email", email);
-	sqlCmd->Parameters->AddWithValue("@Password", password);
+		try {
+			sqlConn->Open();
 
-	try {
-		sqlConn->Open();
+			// Execute the query
+			MySqlDataReader^ sqlRd = sqlCmd->ExecuteReader();
 
-		// Execute the query
-		MySqlDataReader^ sqlRd = sqlCmd->ExecuteReader();
+			if (sqlRd->Read()) {
+				// Retrieve the RoleID from the query result
+				int roleID = Convert::ToInt32(sqlRd["RoleID"]);
 
-		if (sqlRd->Read()) {
-			// Retrieve the RoleID from the query result
-			int roleID = Convert::ToInt32(sqlRd["RoleID"]);
+				// Retrieve other user details if necessary
+				System::String^ userName = sqlRd["Name"]->ToString();
+				System::String^ userEmail = sqlRd["Email"]->ToString();
 
-			// Retrieve other user details if necessary
-			System::String^ userName = sqlRd["Name"]->ToString();
-			System::String^ userEmail = sqlRd["Email"]->ToString();
+				// Store the logged-in user's email globally
+				LoggedInEmail = userEmail;
 
-			// Store the logged-in user's email globally
-			LoggedInEmail = userEmail;
+				// Open the MDIForm and pass the role
+				MDIForm^ mdiForm = gcnew MDIForm(LoggedInEmail);
+				mdiForm->RoleID = roleID; // Pass the role to the MDI form
+				mdiForm->Show();
+				this->Hide();
+			}
+			else {
+				// No matching user found
+				MessageBox::Show("Invalid email or password.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			}
 
-			// Open the MDIForm and pass the role
-			MDIForm^ mdiForm = gcnew MDIForm(LoggedInEmail);
-			mdiForm->RoleID = roleID; // Pass the role to the MDI form
-			mdiForm->Show();
-			this->Hide();
+			sqlConn->Close();
 		}
-		else {
-			// No matching user found
-			MessageBox::Show("Invalid email or password.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		catch (Exception^ ex) {
+			// Handle any errors
+			MessageBox::Show("Error: " + ex->Message, "Database Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		}
-
-		sqlConn->Close();
 	}
-	catch (Exception^ ex) {
-		// Handle any errors
-		MessageBox::Show("Error: " + ex->Message, "Database Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	private: System::Void txtFName_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-}
-
-private: System::Void txtFName_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void btn1Cancel_Click(System::Object^ sender, System::EventArgs^ e) {
-	Application::Exit();
-}
-};
+	private: System::Void btn1Cancel_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Exit();
+	}
+	};
 }

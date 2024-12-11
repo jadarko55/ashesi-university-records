@@ -10,7 +10,6 @@ namespace ashesi {
 	using namespace System::Drawing;
 	using namespace MySql::Data::MySqlClient;
 
-
 	/// <summary>
 	/// Summary for AddStudent
 	/// </summary>
@@ -48,13 +47,11 @@ namespace ashesi {
 	private: System::Windows::Forms::Button^ btnCancel;
 	private: System::Windows::Forms::Button^ btnAdd;
 
-
-
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -162,60 +159,58 @@ namespace ashesi {
 
 		}
 #pragma endregion
-	private: System::Void textBox3_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
 	private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
-private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
-	String^ name = textBox1->Text;
-	String^ email = textBox2->Text;
-	String^ password = textBox4->Text;
+	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
+		String^ name = textBox1->Text;
+		String^ email = textBox2->Text;
+		String^ password = textBox4->Text;
 
-	// Basic validation to check if all fields are filled
-	if (String::IsNullOrEmpty(name) || String::IsNullOrEmpty(email) || String::IsNullOrEmpty(password)) {
-		MessageBox::Show("Please fill in all fields.");
-		return;
+		// Basic validation to check if all fields are filled
+		if (String::IsNullOrEmpty(name) || String::IsNullOrEmpty(email) || String::IsNullOrEmpty(password)) {
+			MessageBox::Show("Please fill in all fields.");
+			return;
+		}
+
+		try {
+			// MySQL connection setup
+			MySqlConnection^ conn = gcnew MySqlConnection("server=localhost;userid=root;password=;database=ashesi");
+			conn->Open();
+
+			// SQL Query to insert into Users table
+			String^ userQuery = "INSERT INTO Users (Name, Email, UserPassword, RoleID) VALUES (@Name, @Email, @Password, 3)";
+			MySqlCommand^ userCmd = gcnew MySqlCommand(userQuery, conn);
+			userCmd->Parameters->AddWithValue("@Name", name);
+			userCmd->Parameters->AddWithValue("@Email", email);
+			userCmd->Parameters->AddWithValue("@Password", password);
+
+			// Execute the insert into Users table
+			userCmd->ExecuteNonQuery();
+
+			// Get the UserID of the newly inserted user
+			String^ getUserIDQuery = "SELECT LAST_INSERT_ID()";
+			MySqlCommand^ getUserIDCmd = gcnew MySqlCommand(getUserIDQuery, conn);
+			int userID = Convert::ToInt32(getUserIDCmd->ExecuteScalar());
+
+			// SQL Query to insert into Student table
+			String^ studentQuery = "INSERT INTO Student (UserID) VALUES (@UserID)";
+			MySqlCommand^ studentCmd = gcnew MySqlCommand(studentQuery, conn);
+			studentCmd->Parameters->AddWithValue("@UserID", userID);
+
+			// Execute the insert into Student table
+			studentCmd->ExecuteNonQuery();
+
+			// Close the connection
+			conn->Close();
+
+			MessageBox::Show("Student added successfully.");
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show("Error: " + ex->Message);
+		}
 	}
-
-	try {
-		// MySQL connection setup
-		MySqlConnection^ conn = gcnew MySqlConnection("server=localhost;userid=root;password='';database=ashesi");
-		conn->Open();
-
-		// SQL Query to insert into Users table
-		String^ userQuery = "INSERT INTO Users (Name, Email, UserPassword, RoleID) VALUES (@Name, @Email, @Password, 3)";
-		MySqlCommand^ userCmd = gcnew MySqlCommand(userQuery, conn);
-		userCmd->Parameters->AddWithValue("@Name", name);
-		userCmd->Parameters->AddWithValue("@Email", email);
-		userCmd->Parameters->AddWithValue("@Password", password);
-
-		// Execute the insert into Users table
-		userCmd->ExecuteNonQuery();
-
-		// Get the UserID of the newly inserted user
-		String^ getUserIDQuery = "SELECT LAST_INSERT_ID()";
-		MySqlCommand^ getUserIDCmd = gcnew MySqlCommand(getUserIDQuery, conn);
-		int userID = Convert::ToInt32(getUserIDCmd->ExecuteScalar());
-
-		// SQL Query to insert into Student table
-		String^ studentQuery = "INSERT INTO Student (UserID) VALUES (@UserID)";
-		MySqlCommand^ studentCmd = gcnew MySqlCommand(studentQuery, conn);
-		studentCmd->Parameters->AddWithValue("@UserID", userID);
-
-		// Execute the insert into Student table
-		studentCmd->ExecuteNonQuery();
-
-		// Close the connection
-		conn->Close();
-
-		MessageBox::Show("Student added successfully.");
+	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-	catch (Exception^ ex) {
-		MessageBox::Show("Error: " + ex->Message);
-	}
-}
-private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-}
-};
+	};
 }
