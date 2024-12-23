@@ -1,7 +1,6 @@
 #pragma once
 #include "StudentDashboard.h"
 #include "FacultyDasboard.h"
-
 #include "AdminDashboard.h"
 
 namespace ashesi {
@@ -26,7 +25,7 @@ namespace ashesi {
 		MDIForm(String^ email)
 		{
 			InitializeComponent();
-			String^ userEmail = email;
+			userEmail = email;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -34,7 +33,7 @@ namespace ashesi {
 
 	public:
 		property int RoleID; // Property to store the RoleID
-		
+
 
 	protected:
 		/// <summary>
@@ -69,7 +68,7 @@ namespace ashesi {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -136,15 +135,6 @@ namespace ashesi {
 			this->tsbtnFaculty->Size = System::Drawing::Size(58, 24);
 			this->tsbtnFaculty->Text = L"Faculty";
 			this->tsbtnFaculty->Click += gcnew System::EventHandler(this, &MDIForm::tsbtnFaculty_Click);
-			// 
-			// tsbtnFaculty
-			// 
-			this->tsbtnFaculty->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
-			this->tsbtnFaculty->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbtnFaculty.Image")));
-			this->tsbtnFaculty->ImageTransparentColor = System::Drawing::Color::Magenta;
-			this->tsbtnFaculty->Name = L"tsbtnFaculty";
-			this->tsbtnFaculty->Size = System::Drawing::Size(70, 33);
-			this->tsbtnFaculty->Text = L"Faculty";
 			// 
 			// tsbtnAdmin
 			// 
@@ -253,21 +243,22 @@ namespace ashesi {
 			break;
 		}
 	}
-private: System::Void tsbtnStudent_Click(System::Object^ sender, System::EventArgs^ e) {
-	// Create and display the Student dashboard
-	StudentDashboard^ studentDashboard = gcnew StudentDashboard(userEmail);
-	studentDashboard->MdiParent = this;  // Set MDI parent to this form
-	studentDashboard->Show();  // Show the form
+	private: System::Void tsbtnStudent_Click(System::Object^ sender, System::EventArgs^ e) {
+		// Create and display the Student dashboard
+		StudentDashboard^ studentDashboard = gcnew StudentDashboard(userEmail);
+		studentDashboard->MdiParent = this;  // Set MDI parent to this form
+		studentDashboard->Show();  // Show the form
+	}
+	private: System::Void tsbtnFaculty_Click(System::Object^ sender, System::EventArgs^ e) {
+		FacultyDasboard^ facultyDasboard = gcnew FacultyDasboard();
+		facultyDasboard->MdiParent = this;
+		facultyDasboard->Show();
+	}
+	private: System::Void tsbtnAdmin_Click(System::Object^ sender, System::EventArgs^ e) {
+		AdminDashboard^ adminDashboard = gcnew AdminDashboard(userEmail);
+		adminDashboard->MdiParent = this;
+		adminDashboard->Show();
+	}
+	};
 }
-private: System::Void tsbtnFaculty_Click(System::Object^ sender, System::EventArgs^ e) {
-	FacultyDasboard^ facultyDasboard = gcnew FacultyDasboard();
-	facultyDasboard->MdiParent = this;
-	facultyDasboard->Show();
-}
-private: System::Void tsbtnAdmin_Click(System::Object^ sender, System::EventArgs^ e) {
-	AdminDashboard^ adminDashboard = gcnew AdminDashboard();
-	adminDashboard->MdiParent = this;
-	adminDashboard->Show();
-}
-};
-}
+

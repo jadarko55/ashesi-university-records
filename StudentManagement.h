@@ -1,6 +1,7 @@
 #pragma once
 #include "DeleteStudent.h"
 #include "AddStudent.h"
+#include "UpdateStudent.h"
 
 namespace ashesi {
 
@@ -10,6 +11,7 @@ namespace ashesi {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace MySql::Data::MySqlClient;
 
 	/// <summary>
 	/// Summary for StudentManagement
@@ -20,9 +22,8 @@ namespace ashesi {
 		StudentManagement(void)
 		{
 			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
+			LoadStudentData();
+			LoadStudentDetailsData();
 		}
 
 	protected:
@@ -41,17 +42,14 @@ namespace ashesi {
 	private: System::Windows::Forms::DataGridView^ dgvStudentDetails;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Button^ btnAddStudent;
-
 	private: System::Windows::Forms::Button^ btnUpdateStudent;
-
 	private: System::Windows::Forms::Button^ btnDeleteStudent;
-
 
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -129,6 +127,7 @@ namespace ashesi {
 			this->btnUpdateStudent->TabIndex = 1;
 			this->btnUpdateStudent->Text = L"Update Student";
 			this->btnUpdateStudent->UseVisualStyleBackColor = true;
+			this->btnUpdateStudent->Click += gcnew System::EventHandler(this, &StudentManagement::btnUpdateStudent_Click);
 			// 
 			// StudentManagement
 			// 
@@ -151,9 +150,41 @@ namespace ashesi {
 		DeleteStudent^ deleteStudent = gcnew DeleteStudent();
 		deleteStudent->Show();
 	}
-private: System::Void btnAddStudent_Click(System::Object^ sender, System::EventArgs^ e) {
-	AddStudent^ addStudent = gcnew AddStudent();
-	addStudent->Show();
-}
-};
+	private: System::Void btnAddStudent_Click(System::Object^ sender, System::EventArgs^ e) {
+		AddStudent^ addStudent = gcnew AddStudent();
+		addStudent->Show();
+	}
+	private: System::Void btnUpdateStudent_Click(System::Object^ sender, System::EventArgs^ e) {
+		UpdateStudent^ updateStudent = gcnew UpdateStudent();
+		updateStudent->Show();
+	}
+
+	private: System::Void LoadStudentData(void)
+	{
+		try {
+			MySqlConnection^ conn = gcnew MySqlConnection("server=localhost;userid=root;password='';database=ashesi");
+			MySqlDataAdapter^ da = gcnew MySqlDataAdapter("SELECT * FROM Student", conn);
+			DataTable^ dt = gcnew DataTable();
+			da->Fill(dt);
+			dgvStudents->DataSource = dt;
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show("Error: " + ex->Message);
+		}
+	}
+
+	private: System::Void LoadStudentDetailsData(void)
+	{
+		try {
+			MySqlConnection^ conn = gcnew MySqlConnection("server=localhost;userid=root;password='';database=ashesi");
+			MySqlDataAdapter^ da = gcnew MySqlDataAdapter("SELECT * FROM StudentDetails", conn);
+			DataTable^ dt = gcnew DataTable();
+			da->Fill(dt);
+			dgvStudentDetails->DataSource = dt;
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show("Error: " + ex->Message);
+		}
+	}
+	};
 }

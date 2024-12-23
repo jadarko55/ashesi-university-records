@@ -175,11 +175,7 @@ namespace ashesi {
 #pragma endregion
 private: System::Void btnProfile_Click(System::Object^ sender, System::EventArgs^ e) {
 	// Create and display the Student dashboard
-	Profile^ studentProfile = gcnew Profile(studentEmail);
-
-	studentProfile->LoadStudentDetails(studentEmail);
 	
-	studentProfile->Show();  // Show the form
 
 }
 private: System::Void btnRegister_Click(System::Object^ sender, System::EventArgs^ e) {

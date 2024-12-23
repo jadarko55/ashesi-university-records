@@ -123,11 +123,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddFaculty.cpp" />
     <ClCompile Include="AddStudent.cpp" />
     <ClCompile Include="AdminDashboard.cpp" />
     <ClCompile Include="Course.cpp" />
+    <ClCompile Include="CourseManagement.cpp" />
+    <ClCompile Include="DeleteFaculty.cpp" />
     <ClCompile Include="DeleteStudent.cpp" />
+    <ClCompile Include="EnrollmentManagement.cpp" />
     <ClCompile Include="Faculty Dasboard.cpp" />
+    <ClCompile Include="FacultyManagement.cpp" />
     <ClCompile Include="FacultyProfile.cpp" />
     <ClCompile Include="Grades1.cpp" />
     <ClCompile Include="MDIForm.cpp" />
@@ -137,8 +142,16 @@
     <ClCompile Include="Profile.cpp" />
     <ClCompile Include="StudentDashboard.cpp" />
     <ClCompile Include="StudentManagement.cpp" />
+    <ClCompile Include="UpdateEnrollment.cpp" />
+    <ClCompile Include="UpdateFaculty.cpp" />
+    <ClCompile Include="UpdateFacultyDetails.cpp" />
+    <ClCompile Include="UpdateStudent.cpp" />
+    <ClCompile Include="UpdateStudentDetails.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddFaculty.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AddStudent.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -148,7 +161,19 @@
     <ClInclude Include="Course.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CourseManagement.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="DeleteFaculty.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="EnrollmentManagement.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="FacultyDasboard.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="FacultyManagement.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="FacultyProfile.h">
@@ -178,6 +203,21 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="StudentManagement.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UpdateEnrollment.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UpdateFaculty.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UpdateFacultyDetails.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UpdateStudent.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UpdateStudentDetails.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
