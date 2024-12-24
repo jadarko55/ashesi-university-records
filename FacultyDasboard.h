@@ -41,27 +41,17 @@ namespace ashesi {
 
 	private: System::Windows::Forms::Button^ button5;
 	private: System::Windows::Forms::Button^ button6;
-
-
-
-
 	private: System::Windows::Forms::Button^ button11;
-
-
 	private: System::Windows::Forms::Button^ button14;
 	private: System::Windows::Forms::Button^ button15;
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
-	protected:
-
-	private: System::ComponentModel::IContainer^ components;
-
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-
+		System::ComponentModel::IContainer^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -150,10 +140,10 @@ namespace ashesi {
 			this->panel1->Controls->Add(this->button6);
 			this->panel1->Controls->Add(this->button14);
 			this->panel1->Controls->Add(this->button11);
-			this->panel1->Location = System::Drawing::Point(1, 10);
+			this->panel1->Location = System::Drawing::Point(12, 12);
 			this->panel1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(249, 414);
+			this->panel1->Size = System::Drawing::Size(244, 414);
 			this->panel1->TabIndex = 16;
 			// 
 			// pictureBox1
@@ -161,14 +151,13 @@ namespace ashesi {
 			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Center;
 			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(10, 2);
+			this->pictureBox1->Location = System::Drawing::Point(14, 10);
 			this->pictureBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(231, 244);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::CenterImage;
+			this->pictureBox1->Size = System::Drawing::Size(216, 192);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 15;
 			this->pictureBox1->TabStop = false;
-			this->pictureBox1->Click += gcnew System::EventHandler(this, &FacultyDasboard::pictureBox1_Click);
 			// 
 			// FacultyDasboard
 			// 
@@ -191,5 +180,6 @@ namespace ashesi {
 	}
 	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-};
+	};
 }
+
